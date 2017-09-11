@@ -1,14 +1,18 @@
-﻿import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
+
 public class about extends JDialog{
    JLabel a,b,c;
    public about(JFrame f){
    	super(f,"关于",false);
-   	a=new JLabel("电话号码管理系统  V 1.0");
-   	b=new JLabel("编写:05多媒体2班  刁 有");
-   	c=new JLabel("版权所有       侵权必纠");
+   	a=new JLabel("JAVA 通讯录");
+   	b=new JLabel("计嵌162 史学超");
+   	c=new JLabel("暑期试手");
    	a.setForeground(Color.red);
    	a.setFont(new Font("TimesRoman",Font.BOLD,16));
    	b.setForeground(Color.red);
