@@ -1,38 +1,38 @@
-import java.sql.*;
+ï»¿import java.sql.*;
  import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
 public class update extends JPanel implements ActionListener{
-	JTextField ĞÕÃû,ÊÖ»úºÅÂë,¼ÒÍ¥µç»°,°ì¹«µç»°;
-	JButton ¿ªÊ¼ĞŞ¸Ä,Â¼ÈëĞŞ¸Ä,ÖØÖÃ;
+	JTextField å§“å,æ‰‹æœºå·ç ,å®¶åº­ç”µè¯,åŠå…¬ç”µè¯;
+	JButton å¼€å§‹ä¿®æ”¹,å½•å…¥ä¿®æ”¹,é‡ç½®;
   public update(){  
-  	ĞÕÃû=new JTextField(15);
-  	ÊÖ»úºÅÂë=new JTextField(15);
-  	¼ÒÍ¥µç»°=new JTextField(15);
-  	°ì¹«µç»°=new JTextField(15);
-  	¿ªÊ¼ĞŞ¸Ä=new JButton("¿ªÊ¼ĞŞ¸Ä");
-   Â¼ÈëĞŞ¸Ä=new JButton("Â¼ÈëĞŞ¸Ä");
-   Â¼ÈëĞŞ¸Ä.setEnabled(false);
-   ÖØÖÃ=new JButton("ÖØÖÃ");
-   ĞÕÃû.addActionListener(this);
-   ¿ªÊ¼ĞŞ¸Ä.addActionListener(this);
-   Â¼ÈëĞŞ¸Ä.addActionListener(this);
-   ÖØÖÃ.addActionListener(this);
+  	å§“å=new JTextField(15);
+  	æ‰‹æœºå·ç =new JTextField(15);
+  	å®¶åº­ç”µè¯=new JTextField(15);
+  	åŠå…¬ç”µè¯=new JTextField(15);
+  	å¼€å§‹ä¿®æ”¹=new JButton("å¼€å§‹ä¿®æ”¹");
+   å½•å…¥ä¿®æ”¹=new JButton("å½•å…¥ä¿®æ”¹");
+   å½•å…¥ä¿®æ”¹.setEnabled(false);
+   é‡ç½®=new JButton("é‡ç½®");
+   å§“å.addActionListener(this);
+   å¼€å§‹ä¿®æ”¹.addActionListener(this);
+   å½•å…¥ä¿®æ”¹.addActionListener(this);
+   é‡ç½®.addActionListener(this);
     Box box1=Box.createHorizontalBox();              
-   box1.add(new JLabel("ÊäÈëÒªĞŞ¸ÄĞÅÏ¢µÄĞÕÃû:",JLabel.CENTER));
-   box1.add(ĞÕÃû);
-   box1.add(¿ªÊ¼ĞŞ¸Ä);
+   box1.add(new JLabel("è¾“å…¥è¦ä¿®æ”¹ä¿¡æ¯çš„å§“å:",JLabel.CENTER));
+   box1.add(å§“å);
+   box1.add(å¼€å§‹ä¿®æ”¹);
    Box box3=Box.createHorizontalBox();              
-   box3.add(new JLabel("(ĞÂ)ÊÖ»úºÅÂë:",JLabel.CENTER));
-   box3.add(ÊÖ»úºÅÂë);
+   box3.add(new JLabel("(æ–°)æ‰‹æœºå·ç :",JLabel.CENTER));
+   box3.add(æ‰‹æœºå·ç );
    Box box4=Box.createHorizontalBox();              
-   box4.add(new JLabel("(ĞÂ)¼ÒÍ¥µç»°:",JLabel.CENTER));
-   box4.add(¼ÒÍ¥µç»°);
+   box4.add(new JLabel("(æ–°)å®¶åº­ç”µè¯:",JLabel.CENTER));
+   box4.add(å®¶åº­ç”µè¯);
    Box box5=Box.createHorizontalBox();              
-   box5.add(new JLabel("(ĞÂ)°ì¹«µç»°:",JLabel.CENTER));
-   box5.add(°ì¹«µç»°);
+   box5.add(new JLabel("(æ–°)åŠå…¬ç”µè¯:",JLabel.CENTER));
+   box5.add(åŠå…¬ç”µè¯);
    Box boxH=Box.createVerticalBox();              
    boxH.add(box1);
    boxH.add(box3);
@@ -44,8 +44,8 @@ public class update extends JPanel implements ActionListener{
    setLayout(new BorderLayout());
    add(pCenter,BorderLayout.CENTER);
    JPanel pSouth=new JPanel();
-   pSouth.add(Â¼ÈëĞŞ¸Ä);
-   pSouth.add(ÖØÖÃ);
+   pSouth.add(å½•å…¥ä¿®æ”¹);
+   pSouth.add(é‡ç½®);
    add(pSouth,BorderLayout.SOUTH);
    validate();
   }
@@ -62,40 +62,40 @@ public class update extends JPanel implements ActionListener{
          	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
       
-      if(e.getSource()==¿ªÊ¼ĞŞ¸Ä){
-      	name=ĞÕÃû.getText();
-      	String sql="select * from number where ĞÕÃû='"+name+"'";
+      if(e.getSource()==å¼€å§‹ä¿®æ”¹){
+      	name=å§“å.getText();
+      	String sql="select * from number where å§“å='"+name+"'";
         
       	try{
         	Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
         	ResultSet rs=stmt.executeQuery(sql);
         	while(rs.next()){
-        	 s1=rs.getString("ĞÕÃû");
-        	 s2=rs.getString("ÊÖ»úºÅÂë");
-        	 s3=rs.getString("¼ÒÍ¥µç»°");
-        	 s4=rs.getString("°ì¹«µç»°");
+        	 s1=rs.getString("å§“å");
+        	 s2=rs.getString("æ‰‹æœºå·ç ");
+        	 s3=rs.getString("å®¶åº­ç”µè¯");
+        	 s4=rs.getString("åŠå…¬ç”µè¯");
         	}
         	stmt.close();
         	con.close();
         	}catch(SQLException ex){System.out.println(ex.getMessage());}
         if(s1!=null){
-        	Â¼ÈëĞŞ¸Ä.setEnabled(true);
+        	å½•å…¥ä¿®æ”¹.setEnabled(true);
         
-        	ÊÖ»úºÅÂë.setText(s2);
-        	¼ÒÍ¥µç»°.setText(s3);
-        	°ì¹«µç»°.setText(s4);
+        	æ‰‹æœºå·ç .setText(s2);
+        	å®¶åº­ç”µè¯.setText(s3);
+        	åŠå…¬ç”µè¯.setText(s4);
         	
         }
       }  
-      if(e.getSource()==Â¼ÈëĞŞ¸Ä){
-      	name=ĞÕÃû.getText();
-      	s2=ÊÖ»úºÅÂë.getText();
-      	s3=¼ÒÍ¥µç»°.getText();
-      	s4=°ì¹«µç»°.getText();    
-      	String sql2="update number set ÊÖ»úºÅÂë='"+s2+"'"+" where ĞÕÃû='"+name+"'";
-        String sql3="update number set ¼ÒÍ¥µç»°='"+s3+"'"+" where ĞÕÃû='"+name+"'";
-        String sql4="update number set °ì¹«µç»°='"+s4+"'"+" where ĞÕÃû='"+name+"'";
+      if(e.getSource()==å½•å…¥ä¿®æ”¹){
+      	name=å§“å.getText();
+      	s2=æ‰‹æœºå·ç .getText();
+      	s3=å®¶åº­ç”µè¯.getText();
+      	s4=åŠå…¬ç”µè¯.getText();    
+      	String sql2="update number set æ‰‹æœºå·ç ='"+s2+"'"+" where å§“å='"+name+"'";
+        String sql3="update number set å®¶åº­ç”µè¯='"+s3+"'"+" where å§“å='"+name+"'";
+        String sql4="update number set åŠå…¬ç”µè¯='"+s4+"'"+" where å§“å='"+name+"'";
       	try{
         	Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
@@ -108,12 +108,12 @@ public class update extends JPanel implements ActionListener{
      
         } 
   	
-   if(e.getSource()==ÖØÖÃ)
+   if(e.getSource()==é‡ç½®)
       { 
-        ĞÕÃû.setText(null);                                
-                  ÊÖ»úºÅÂë.setText(null);
-                  ¼ÒÍ¥µç»°.setText(null);
-                  °ì¹«µç»°.setText(null);
+        å§“å.setText(null);                                
+                  æ‰‹æœºå·ç .setText(null);
+                  å®¶åº­ç”µè¯.setText(null);
+                  åŠå…¬ç”µè¯.setText(null);
       }
   }
 }

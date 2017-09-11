@@ -1,14 +1,14 @@
-import java.awt.*;
+ï»¿import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 public class about extends JDialog{
    JLabel a,b,c;
    public about(JFrame f){
-   	super(f,"¹ØÓÚ",false);
-   	a=new JLabel("µç»°ºÅÂë¹ÜÀíÏµÍ³  V 1.0");
-   	b=new JLabel("±àĞ´:05¶àÃ½Ìå2°à  µó ÓĞ");
-   	c=new JLabel("°æÈ¨ËùÓĞ       ÇÖÈ¨±Ø¾À");
+   	super(f,"å…³äº",false);
+   	a=new JLabel("ç”µè¯å·ç ç®¡ç†ç³»ç»Ÿ  V 1.0");
+   	b=new JLabel("ç¼–å†™:05å¤šåª’ä½“2ç­  åˆ æœ‰");
+   	c=new JLabel("ç‰ˆæƒæ‰€æœ‰       ä¾µæƒå¿…çº ");
    	a.setForeground(Color.red);
    	a.setFont(new Font("TimesRoman",Font.BOLD,16));
    	b.setForeground(Color.red);

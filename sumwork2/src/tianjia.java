@@ -1,4 +1,4 @@
-import java.sql.*;
+ï»¿import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -6,31 +6,31 @@ import java.io.*;
 import java.util.*;
 public class tianjia extends JPanel implements ActionListener{
 
-	JTextField ĞÕÃû,ÊÖ»úºÅÂë,¼ÒÍ¥µç»°,°ì¹«µç»°;
-	JButton È·¶¨,ÖØÖÃ;
+	JTextField å§“å,æ‰‹æœºå·ç ,å®¶åº­ç”µè¯,åŠå…¬ç”µè¯;
+	JButton ç¡®å®š,é‡ç½®;
 
   public tianjia(){
 
-  	ĞÕÃû=new JTextField(15);
-  	ÊÖ»úºÅÂë=new JTextField(15);
-  	¼ÒÍ¥µç»°=new JTextField(15);
-  	°ì¹«µç»°=new JTextField(15);
-  	È·¶¨=new JButton("È·¶¨");
-    ÖØÖÃ=new JButton("ÖØÖÃ");
-    È·¶¨.addActionListener(this);
-    ÖØÖÃ.addActionListener(this);
+  	å§“å=new JTextField(15);
+  	æ‰‹æœºå·ç =new JTextField(15);
+  	å®¶åº­ç”µè¯=new JTextField(15);
+  	åŠå…¬ç”µè¯=new JTextField(15);
+  	ç¡®å®š=new JButton("ç¡®å®š");
+    é‡ç½®=new JButton("é‡ç½®");
+    ç¡®å®š.addActionListener(this);
+    é‡ç½®.addActionListener(this);
     Box box1=Box.createHorizontalBox();
-    box1.add(new JLabel("ĞÕ     Ãû:",JLabel.CENTER));
-   box1.add(ĞÕÃû);
+    box1.add(new JLabel("å§“     å:",JLabel.CENTER));
+   box1.add(å§“å);
    Box box2=Box.createHorizontalBox();              
-   box2.add(new JLabel("ÊÖ»úºÅÂë:",JLabel.CENTER));
-   box2.add(ÊÖ»úºÅÂë);
+   box2.add(new JLabel("æ‰‹æœºå·ç :",JLabel.CENTER));
+   box2.add(æ‰‹æœºå·ç );
    Box box3=Box.createHorizontalBox();              
-   box3.add(new JLabel("¼ÒÍ¥µç»°:",JLabel.CENTER));
-   box3.add(¼ÒÍ¥µç»°);
+   box3.add(new JLabel("å®¶åº­ç”µè¯:",JLabel.CENTER));
+   box3.add(å®¶åº­ç”µè¯);
    Box box4=Box.createHorizontalBox();              
-   box4.add(new JLabel("°ì¹«µç»°:",JLabel.CENTER));
-   box4.add(°ì¹«µç»°);
+   box4.add(new JLabel("åŠå…¬ç”µè¯:",JLabel.CENTER));
+   box4.add(åŠå…¬ç”µè¯);
    Box boxH=Box.createVerticalBox();              
    boxH.add(box1);
    boxH.add(box2);
@@ -42,8 +42,8 @@ public class tianjia extends JPanel implements ActionListener{
    setLayout(new BorderLayout());
    add(pCenter,BorderLayout.CENTER);
    JPanel pSouth=new JPanel();
-   pSouth.add(È·¶¨);
-   pSouth.add(ÖØÖÃ);
+   pSouth.add(ç¡®å®š);
+   pSouth.add(é‡ç½®);
    add(pSouth,BorderLayout.SOUTH);
    validate();
    
@@ -58,21 +58,21 @@ public class tianjia extends JPanel implements ActionListener{
   	 try{
          Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
-     s1=ĞÕÃû.getText();
-     s2=ÊÖ»úºÅÂë.getText();
-     s3=¼ÒÍ¥µç»°.getText();
-     s4=°ì¹«µç»°.getText();
+     s1=å§“å.getText();
+     s2=æ‰‹æœºå·ç .getText();
+     s3=å®¶åº­ç”µè¯.getText();
+     s4=åŠå…¬ç”µè¯.getText();
      String sql="insert into number values(?,?,?,?)";
-     if(e.getSource()==È·¶¨){
+     if(e.getSource()==ç¡®å®š){
      	
      	
-     	if(s1==""){String warning="±ØĞëÊäÈëĞÕÃû!";
+     	if(s1==""){String warning="å¿…é¡»è¾“å…¥å§“å!";
                     
-                   JOptionPane.showMessageDialog(this,warning,"¾¯¸æ",JOptionPane.WARNING_MESSAGE);
+                   JOptionPane.showMessageDialog(this,warning,"è­¦å‘Š",JOptionPane.WARNING_MESSAGE);
      		}
      	else{
-     		    String m="Ìí¼Ó´ËÈËµç»°!";
-                   int ok=JOptionPane.showConfirmDialog(this,m,"È·ÈÏ",JOptionPane.YES_NO_OPTION,
+     		    String m="æ·»åŠ æ­¤äººç”µè¯!";
+                   int ok=JOptionPane.showConfirmDialog(this,m,"ç¡®è®¤",JOptionPane.YES_NO_OPTION,
                                                  JOptionPane.INFORMATION_MESSAGE);
              if(ok==JOptionPane.YES_OPTION){
              	try{
@@ -89,28 +89,28 @@ public class tianjia extends JPanel implements ActionListener{
              }      
      	
      		}
-     		ĞÕÃû.setText(null);
-        ÊÖ»úºÅÂë.setText(null);
-        ¼ÒÍ¥µç»°.setText(null);
-        °ì¹«µç»°.setText(null);
+     		å§“å.setText(null);
+        æ‰‹æœºå·ç .setText(null);
+        å®¶åº­ç”µè¯.setText(null);
+        åŠå…¬ç”µè¯.setText(null);
      }
 
-      if(e.getSource()==ÖØÖÃ)
+      if(e.getSource()==é‡ç½®)
       { 
-        ĞÕÃû.setText(null);
-        ÊÖ»úºÅÂë.setText(null);
-        ¼ÒÍ¥µç»°.setText(null);
-        °ì¹«µç»°.setText(null);
+        å§“å.setText(null);
+        æ‰‹æœºå·ç .setText(null);
+        å®¶åº­ç”µè¯.setText(null);
+        åŠå…¬ç”µè¯.setText(null);
         } 
   }
   /*public void textValueChanged(TextEvent e){
-  	if(e.getSource()==ÊÖ»úºÅÂë||e.getSource()==¼ÒÍ¥µç»°||e.getSource()==°ì¹«µç»°){
-  		String s=ÊÖ»úºÅÂë.getText();
+  	if(e.getSource()==æ‰‹æœºå·ç ||e.getSource()==å®¶åº­ç”µè¯||e.getSource()==åŠå…¬ç”µè¯){
+  		String s=æ‰‹æœºå·ç .getText();
 					for(int i=0;i<s.length();i++){
 						char c=s.charAt(i);
 						if(c<'0'||c>'9'){
-							String warning="ºÅÂëÖ»ÄÜÎªÊı×Ö!";
-              JOptionPane.showMessageDialog(this,warning,"¾¯¸æ",JOptionPane.WARNING_MESSAGE);
+							String warning="å·ç åªèƒ½ä¸ºæ•°å­—!";
+              JOptionPane.showMessageDialog(this,warning,"è­¦å‘Š",JOptionPane.WARNING_MESSAGE);
 						}
   	}*/
   }

@@ -1,4 +1,4 @@
-import java.sql.*;
+ï»¿import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -6,38 +6,38 @@ import java.io.*;
 import java.util.*;
 public class find extends JDialog implements ActionListener{
 	
-	JTextField ĞÕÃû,ÊÖ»úºÅÂë,¼ÒÍ¥µç»°,°ì¹«µç»°;
-	JButton ²éÑ¯,É¾³ı;
+	JTextField å§“å,æ‰‹æœºå·ç ,å®¶åº­ç”µè¯,åŠå…¬ç”µè¯;
+	JButton æŸ¥è¯¢,åˆ é™¤;
           
   public find(JFrame f){
-  	super(f,"²éÑ¯¶Ô»°¿ò",false);                           
-   ĞÕÃû=new JTextField(15);
-   ²éÑ¯=new JButton("²éÑ¯");
-   É¾³ı=new JButton("É¾³ı");
-   ²éÑ¯.addActionListener(this);
-   É¾³ı.addActionListener(this);
-   ĞÕÃû=new JTextField(15);
-   ÊÖ»úºÅÂë=new JTextField(15);
-   ÊÖ»úºÅÂë.setEditable(false);
-   ¼ÒÍ¥µç»°=new JTextField(15);
-   ¼ÒÍ¥µç»°.setEditable(false);
-   °ì¹«µç»°=new JTextField(15);
-   °ì¹«µç»°.setEditable(false);
+  	super(f,"æŸ¥è¯¢å¯¹è¯æ¡†",false);                           
+   å§“å=new JTextField(15);
+   æŸ¥è¯¢=new JButton("æŸ¥è¯¢");
+   åˆ é™¤=new JButton("åˆ é™¤");
+   æŸ¥è¯¢.addActionListener(this);
+   åˆ é™¤.addActionListener(this);
+   å§“å=new JTextField(15);
+   æ‰‹æœºå·ç =new JTextField(15);
+   æ‰‹æœºå·ç .setEditable(false);
+   å®¶åº­ç”µè¯=new JTextField(15);
+   å®¶åº­ç”µè¯.setEditable(false);
+   åŠå…¬ç”µè¯=new JTextField(15);
+   åŠå…¬ç”µè¯.setEditable(false);
    Box box1=Box.createHorizontalBox();
-   box1.add(new JLabel("ÊäÈëÒª²éÑ¯µÄĞÕÃû:",JLabel.CENTER));
-   box1.add(ĞÕÃû);
-   box1.add(²éÑ¯);
+   box1.add(new JLabel("è¾“å…¥è¦æŸ¥è¯¢çš„å§“å:",JLabel.CENTER));
+   box1.add(å§“å);
+   box1.add(æŸ¥è¯¢);
    Box box3=Box.createHorizontalBox();              
-   box3.add(new JLabel("ÊÖ»úºÅÂë:",JLabel.CENTER));
-   box3.add(ÊÖ»úºÅÂë);
+   box3.add(new JLabel("æ‰‹æœºå·ç :",JLabel.CENTER));
+   box3.add(æ‰‹æœºå·ç );
    Box box4=Box.createHorizontalBox();              
-   box4.add(new JLabel("¼ÒÍ¥µç»°:",JLabel.CENTER));
-   box4.add(¼ÒÍ¥µç»°);
+   box4.add(new JLabel("å®¶åº­ç”µè¯:",JLabel.CENTER));
+   box4.add(å®¶åº­ç”µè¯);
    Box box5=Box.createHorizontalBox();              
-   box5.add(new JLabel("°ì¹«µç»°:",JLabel.CENTER));
-   box5.add(°ì¹«µç»°);
+   box5.add(new JLabel("åŠå…¬ç”µè¯:",JLabel.CENTER));
+   box5.add(åŠå…¬ç”µè¯);
    Box box6=Box.createHorizontalBox(); 
-   box6.add(É¾³ı);
+   box6.add(åˆ é™¤);
    Box boxH=Box.createVerticalBox();              
    boxH.add(box1);
    boxH.add(box3);
@@ -69,13 +69,13 @@ public class find extends JDialog implements ActionListener{
      String s2="";
      String s3="";
      String s4="";
-    if(e.getSource()==²éÑ¯)
+    if(e.getSource()==æŸ¥è¯¢)
       {
          try{
          	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
-         name=ĞÕÃû.getText();
-         String sql="select * from number where ĞÕÃû='"+name+"'";
+         name=å§“å.getText();
+         String sql="select * from number where å§“å='"+name+"'";
          if(name!=""){
         try{
         	Connection con=DriverManager.getConnection(url,"",null);
@@ -84,10 +84,10 @@ public class find extends JDialog implements ActionListener{
         	
         	      	
         	while(rs.next()){
-        	 s1=rs.getString("ĞÕÃû");
-        	 s2=rs.getString("ÊÖ»úºÅÂë");
-        	 s3=rs.getString("¼ÒÍ¥µç»°");
-        	 s4=rs.getString("°ì¹«µç»°");        		
+        	 s1=rs.getString("å§“å");
+        	 s2=rs.getString("æ‰‹æœºå·ç ");
+        	 s3=rs.getString("å®¶åº­ç”µè¯");
+        	 s4=rs.getString("åŠå…¬ç”µè¯");        		
         	
         	}
         	stmt.close();
@@ -95,19 +95,19 @@ public class find extends JDialog implements ActionListener{
         	
         	}catch(SQLException ex){System.out.println(ex.getMessage());}
         	if(s1!=null){
-        		ĞÕÃû.setText(s1);
-                ÊÖ»úºÅÂë.setText(s2);
-                ¼ÒÍ¥µç»°.setText(s3);
-                °ì¹«µç»°.setText(s4); 
+        		å§“å.setText(s1);
+                æ‰‹æœºå·ç .setText(s2);
+                å®¶åº­ç”µè¯.setText(s3);
+                åŠå…¬ç”µè¯.setText(s4); 
         	}                      
             }        
       } 
-     if(e.getSource()==É¾³ı) {
+     if(e.getSource()==åˆ é™¤) {
      	try{
          	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
-         name=ĞÕÃû.getText();
-         String sql="delete from number where ĞÕÃû='"+name+"'";
+         name=å§“å.getText();
+         String sql="delete from number where å§“å='"+name+"'";
          try{
         	Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
@@ -115,10 +115,10 @@ public class find extends JDialog implements ActionListener{
         	stmt.close();
         	con.close();
         	}catch(SQLException eex){System.out.println(eex.getMessage());}
-        	ĞÕÃû.setText(null);
-                ÊÖ»úºÅÂë.setText(null);
-                ¼ÒÍ¥µç»°.setText(null);
-                °ì¹«µç»°.setText(null);
+        	å§“å.setText(null);
+                æ‰‹æœºå·ç .setText(null);
+                å®¶åº­ç”µè¯.setText(null);
+                åŠå…¬ç”µè¯.setText(null);
      }
   }
 }

@@ -1,16 +1,16 @@
-import java.awt.*;
+ï»¿import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.util.Hashtable;
 public class manager extends JFrame implements ActionListener{
-	 tianjia    ºÅÂëÌí¼Ó=null;          
-     update  ºÅÂëĞŞ¸Ä=null;          
-     find    ¾«È·²éÑ¯=null; 
-     ztcx  ÕûÌå²éÑ¯=null; 
-     mhcx  Ä£ºı²éÑ¯=null;
-     about ¹ØÓÚ=null;
-     JButton Ìí¼Ó,ĞŞ¸Ä,¾«È·²éÑ¯1,ÕûÌå²éÑ¯1,Ä£ºı²éÑ¯1,bbbb;     
+	 tianjia    å·ç æ·»åŠ =null;          
+     update  å·ç ä¿®æ”¹=null;          
+     find    ç²¾ç¡®æŸ¥è¯¢=null; 
+     ztcx  æ•´ä½“æŸ¥è¯¢=null; 
+     mhcx  æ¨¡ç³ŠæŸ¥è¯¢=null;
+     about å…³äº=null;
+     JButton æ·»åŠ ,ä¿®æ”¹,ç²¾ç¡®æŸ¥è¯¢1,æ•´ä½“æŸ¥è¯¢1,æ¨¡ç³ŠæŸ¥è¯¢1,bbbb;     
    Container con=null;
                            
    CardLayout card=null;                       
@@ -22,43 +22,43 @@ public class manager extends JFrame implements ActionListener{
      JPanel aa=new JPanel();
       JPanel bb=new JPanel();
      aa.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
-     Ìí¼Ó=new JButton("Ìí¼ÓºÅÂë");
-     ĞŞ¸Ä=new JButton("ĞŞ¸ÄºÅÂë");
-     ¾«È·²éÑ¯1=new JButton("¾«È·²éÑ¯");
-     ÕûÌå²éÑ¯1=new JButton("ÕûÌå²éÑ¯");
-     Ä£ºı²éÑ¯1=new JButton("Ä£ºı²éÑ¯");
-     bbbb=new JButton("¹ØÓÚ");
-     aa.add(Ìí¼Ó);
-     aa.add(ĞŞ¸Ä);
-     aa.add(¾«È·²éÑ¯1);
-     aa.add(ÕûÌå²éÑ¯1);
-     aa.add(Ä£ºı²éÑ¯1);
+     æ·»åŠ =new JButton("æ·»åŠ å·ç ");
+     ä¿®æ”¹=new JButton("ä¿®æ”¹å·ç ");
+     ç²¾ç¡®æŸ¥è¯¢1=new JButton("ç²¾ç¡®æŸ¥è¯¢");
+     æ•´ä½“æŸ¥è¯¢1=new JButton("æ•´ä½“æŸ¥è¯¢");
+     æ¨¡ç³ŠæŸ¥è¯¢1=new JButton("æ¨¡ç³ŠæŸ¥è¯¢");
+     bbbb=new JButton("å…³äº");
+     aa.add(æ·»åŠ );
+     aa.add(ä¿®æ”¹);
+     aa.add(ç²¾ç¡®æŸ¥è¯¢1);
+     aa.add(æ•´ä½“æŸ¥è¯¢1);
+     aa.add(æ¨¡ç³ŠæŸ¥è¯¢1);
      bb.add(bbbb);
-     label=new JLabel("»¶Ó­Ê¹ÓÃµç»°ºÅÂë¹ÜÀíÏµÍ³",JLabel.CENTER);
+     label=new JLabel("æ¬¢è¿ä½¿ç”¨ç”µè¯å·ç ç®¡ç†ç³»ç»Ÿ",JLabel.CENTER);
      label.setFont(new Font("TimesRoman",Font.BOLD,24));
      label.setForeground(Color.red);
-     Ìí¼Ó.addActionListener(this);
-     ĞŞ¸Ä.addActionListener(this);
-     ¾«È·²éÑ¯1.addActionListener(this);
-     ÕûÌå²éÑ¯1.addActionListener(this);
-     Ä£ºı²éÑ¯1.addActionListener(this);
+     æ·»åŠ .addActionListener(this);
+     ä¿®æ”¹.addActionListener(this);
+     ç²¾ç¡®æŸ¥è¯¢1.addActionListener(this);
+     æ•´ä½“æŸ¥è¯¢1.addActionListener(this);
+     æ¨¡ç³ŠæŸ¥è¯¢1.addActionListener(this);
      bbbb.addActionListener(this);
      card=new CardLayout();
      con=getContentPane();
      pCenter=new JPanel();
      pCenter.setLayout(card); 
     
-      ºÅÂëÌí¼Ó=new tianjia();
-     ºÅÂëĞŞ¸Ä=new update();
-     ¾«È·²éÑ¯=new find(this);
-     ÕûÌå²éÑ¯=new ztcx();
-     Ä£ºı²éÑ¯=new mhcx();
-      ¹ØÓÚ=new about(this);
-     pCenter.add("»¶Ó­Óï½çÃæ",label);
-     pCenter.add("Â¼Èë½çÃæ",ºÅÂëÌí¼Ó);
-     pCenter.add("ĞŞ¸Ä½çÃæ",ºÅÂëĞŞ¸Ä);    
-     pCenter.add("ÕûÌå²éÑ¯½çÃæ",ÕûÌå²éÑ¯);
-     pCenter.add("Ä£ºı²éÑ¯½çÃæ",Ä£ºı²éÑ¯);
+      å·ç æ·»åŠ =new tianjia();
+     å·ç ä¿®æ”¹=new update();
+     ç²¾ç¡®æŸ¥è¯¢=new find(this);
+     æ•´ä½“æŸ¥è¯¢=new ztcx();
+     æ¨¡ç³ŠæŸ¥è¯¢=new mhcx();
+      å…³äº=new about(this);
+     pCenter.add("æ¬¢è¿è¯­ç•Œé¢",label);
+     pCenter.add("å½•å…¥ç•Œé¢",å·ç æ·»åŠ );
+     pCenter.add("ä¿®æ”¹ç•Œé¢",å·ç ä¿®æ”¹);    
+     pCenter.add("æ•´ä½“æŸ¥è¯¢ç•Œé¢",æ•´ä½“æŸ¥è¯¢);
+     pCenter.add("æ¨¡ç³ŠæŸ¥è¯¢ç•Œé¢",æ¨¡ç³ŠæŸ¥è¯¢);
      con.add(aa,BorderLayout.NORTH);
      con.add(bb,BorderLayout.SOUTH);
      con.add(pCenter,BorderLayout.CENTER);
@@ -75,28 +75,28 @@ public class manager extends JFrame implements ActionListener{
    }
    public void actionPerformed(ActionEvent e)
    {
-     if(e.getSource()==Ìí¼Ó)
+     if(e.getSource()==æ·»åŠ )
        {
-         card.show(pCenter,"Â¼Èë½çÃæ");
+         card.show(pCenter,"å½•å…¥ç•Œé¢");
        }
-     else if(e.getSource()==ĞŞ¸Ä)
+     else if(e.getSource()==ä¿®æ”¹)
        {
-         card.show(pCenter,"ĞŞ¸Ä½çÃæ");
+         card.show(pCenter,"ä¿®æ”¹ç•Œé¢");
        }
-     else if(e.getSource()==¾«È·²éÑ¯1)
+     else if(e.getSource()==ç²¾ç¡®æŸ¥è¯¢1)
       {
-         ¾«È·²éÑ¯.setVisible(true);
+         ç²¾ç¡®æŸ¥è¯¢.setVisible(true);
       }
-     else if(e.getSource()==ÕûÌå²éÑ¯1)
+     else if(e.getSource()==æ•´ä½“æŸ¥è¯¢1)
       {
-         card.show(pCenter,"ÕûÌå²éÑ¯½çÃæ");
+         card.show(pCenter,"æ•´ä½“æŸ¥è¯¢ç•Œé¢");
       }
-      else if(e.getSource()==Ä£ºı²éÑ¯1)
+      else if(e.getSource()==æ¨¡ç³ŠæŸ¥è¯¢1)
       {
-         card.show(pCenter,"Ä£ºı²éÑ¯½çÃæ");
+         card.show(pCenter,"æ¨¡ç³ŠæŸ¥è¯¢ç•Œé¢");
       }
       else if(e.getSource()==bbbb){
-         ¹ØÓÚ.setVisible(true);
+         å…³äº.setVisible(true);
       }
    }
   public static void main(String args[])

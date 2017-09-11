@@ -1,4 +1,4 @@
-import java.sql.*;
+ï»¿import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -7,26 +7,26 @@ import java.util.*;
 public class mhcx extends JPanel implements ActionListener{
      JTextArea ruslt;
      JTextField tj;
-	 JButton ²éÑ¯;
+	 JButton æŸ¥è¯¢;
 	 String name;
 	 String sql="";
 	 JLabel p;
 	 public mhcx(){
 	 	ruslt=new JTextArea(10,28);
 	 	ruslt.setEditable(false);
-	 	²éÑ¯=new JButton("²éÑ¯");
+	 	æŸ¥è¯¢=new JButton("æŸ¥è¯¢");
         tj=new JTextField(5);
-        p=new JLabel("ÇëÊäÈëÌõ¼ş:");
+        p=new JLabel("è¯·è¾“å…¥æ¡ä»¶:");
 	 	Box box2=Box.createHorizontalBox();
 	 	box2.add(p);
 	 	box2.add(tj);
-	 	box2.add(²éÑ¯);
+	 	box2.add(æŸ¥è¯¢);
 	 	Box box3=Box.createHorizontalBox();
 	 	box3.add(ruslt);
 	 	Box boxH=Box.createVerticalBox(); 
         boxH.add(box2);
         boxH.add(box3);
-        ²éÑ¯.addActionListener(this);
+        æŸ¥è¯¢.addActionListener(this);
         JPanel pCenter=new JPanel();
         pCenter.add(boxH);
         setLayout(new BorderLayout());
@@ -43,24 +43,24 @@ public class mhcx extends JPanel implements ActionListener{
         try{
          	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
-	 	if(e.getSource()==²éÑ¯){
+	 	if(e.getSource()==æŸ¥è¯¢){
 	 		try{
         	Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
         	name=tj.getText();
-        	sql="select * from number where ĞÕÃû like '%"+name+"%'";
+        	sql="select * from number where å§“å like '%"+name+"%'";
         	
         	ResultSet rs=stmt.executeQuery(sql); 
-        	ruslt.setText("ĞÕ  Ãû          ÊÖ»úºÅÂë           ¼ÒÍ¥µç»°           °ì¹«µç»°\n");
+        	ruslt.setText("å§“  å          æ‰‹æœºå·ç            å®¶åº­ç”µè¯           åŠå…¬ç”µè¯\n");
         	if(!rs.next())
-        	      ruslt.setText("ÎŞ¼ÇÂ¼");
+        	      ruslt.setText("æ— è®°å½•");
         	   else     	
         	{
         		do{
-        			s1=rs.getString("ĞÕÃû");
-        			s2=rs.getString("ÊÖ»úºÅÂë");
-        	        s3=rs.getString("¼ÒÍ¥µç»°");
-        	        s4=rs.getString("°ì¹«µç»°");
+        			s1=rs.getString("å§“å");
+        			s2=rs.getString("æ‰‹æœºå·ç ");
+        	        s3=rs.getString("å®¶åº­ç”µè¯");
+        	        s4=rs.getString("åŠå…¬ç”µè¯");
         		    ruslt.append(s1);
         		    ruslt.append(s2);
         		    ruslt.append(s3);
