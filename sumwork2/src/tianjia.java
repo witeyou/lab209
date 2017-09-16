@@ -45,6 +45,7 @@ public class tianjia extends JPanel implements ActionListener{
    pSouth.add(确定);
    pSouth.add(重置);
    add(pSouth,BorderLayout.SOUTH);
+
    validate();
    
   }
@@ -55,9 +56,14 @@ public class tianjia extends JPanel implements ActionListener{
      String s2="";
      String s3="";
      String s4="";
-  	 try{
+  	 try
+     {
          Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         }catch(java.lang.ClassNotFoundException eee){}
+     }
+     catch(java.lang.ClassNotFoundException eee)
+     {
+
+     }
      s1=姓名.getText();
      s2=手机号码.getText();
      s3=家庭电话.getText();
@@ -66,27 +72,30 @@ public class tianjia extends JPanel implements ActionListener{
      if(e.getSource()==确定){
      	
      	
-     	if(s1==""){String warning="必须输入姓名!";
-                    
-                   JOptionPane.showMessageDialog(this,warning,"警告",JOptionPane.WARNING_MESSAGE);
+     	if(s1=="")
+     	    {
+     	        String warning="必须输入姓名!";
+                JOptionPane.showMessageDialog(this,warning,"警告",JOptionPane.WARNING_MESSAGE);
      		}
      	else{
      		    String m="添加此人电话!";
-                   int ok=JOptionPane.showConfirmDialog(this,m,"确认",JOptionPane.YES_NO_OPTION,
-                                                 JOptionPane.INFORMATION_MESSAGE);
-             if(ok==JOptionPane.YES_OPTION){
+                   int ok=JOptionPane.showConfirmDialog(this,m,"确认",JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+             if(ok==JOptionPane.YES_OPTION)
+                {
              	try{
-             	Connection con=DriverManager.getConnection(url,"",null);
-        	    Statement stmt=con.createStatement();
-        	    PreparedStatement ps=con.prepareStatement(sql);
-        	    ps.setString(1,s1);
-        	    ps.setString(2,s2);
-        	    ps.setString(3,s3);
-        	    ps.setString(4,s4);
-        	    ps.executeUpdate();
-        	    stmt.close();
-        	    con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
-             }      
+             	    Connection con=DriverManager.getConnection(url,"",null);
+        	        Statement stmt=con.createStatement();
+        	        PreparedStatement ps=con.prepareStatement(sql);
+        	        ps.setString(1,s1);
+        	        ps.setString(2,s2);
+        	        ps.setString(3,s3);
+        	        ps.setString(4,s4);
+        	        ps.executeUpdate();
+        	        stmt.close();
+        	        con.close();
+             	    }
+        	        catch(SQLException ex){System.out.println(ex.getMessage());}
+                }
      	
      		}
      		姓名.setText(null);

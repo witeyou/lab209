@@ -21,11 +21,11 @@ public class manager extends JFrame implements ActionListener{
    CardLayout card=null;                       
    JLabel label=null;                          
    JPanel pCenter;
-   JPanel aa,bb;
+   //JPanel aa,bb;
    public manager(){
-   
-     JPanel aa=new JPanel();
-      JPanel bb=new JPanel();
+
+    JPanel aa=new JPanel();
+    JPanel bb=new JPanel();
      aa.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
      添加=new JButton("添加号码");
      修改=new JButton("修改号码");
