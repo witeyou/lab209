@@ -1,9 +1,8 @@
-import java.sql.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
-import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 public class tianjia extends JPanel implements ActionListener{
 
 	JTextField 姓名,手机号码,家庭电话,办公电话;
@@ -51,14 +50,16 @@ public class tianjia extends JPanel implements ActionListener{
   }
   public void actionPerformed(ActionEvent e){
   	 String name="";
-     String url="jdbc:odbc:diaoyou1";     
+     //String url="jdbc:odbc:diaoyou1";
+     String url="jdbc:mysql://localhost/diaoyou1?user=root&password=";//第一次调试
      String s1="";
      String s2="";
      String s3="";
      String s4="";
   	 try
      {
-         Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+         //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");//第一次调试
+         Class.forName("com.mysql.jdbc.Driver");
      }
      catch(java.lang.ClassNotFoundException eee)
      {
@@ -69,6 +70,7 @@ public class tianjia extends JPanel implements ActionListener{
      s3=家庭电话.getText();
      s4=办公电话.getText();
      String sql="insert into number values(?,?,?,?)";
+     //String sql="insert into number values(1,2,3,4)";
      if(e.getSource()==确定){
      	
      	
@@ -83,8 +85,9 @@ public class tianjia extends JPanel implements ActionListener{
              if(ok==JOptionPane.YES_OPTION)
                 {
              	try{
-             	    Connection con=DriverManager.getConnection(url,"",null);
-        	        Statement stmt=con.createStatement();
+             	    Connection con=DriverManager.getConnection(url);
+                    //Connection con=DriverManager.getConnection(url,"",null);
+                    Statement stmt=con.createStatement();
         	        PreparedStatement ps=con.prepareStatement(sql);
         	        ps.setString(1,s1);
         	        ps.setString(2,s2);

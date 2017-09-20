@@ -1,9 +1,8 @@
-import java.sql.*;
- import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
-import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 public class update extends JPanel implements ActionListener{
 	JTextField 姓名,手机号码,家庭电话,办公电话;
 	JButton 开始修改,录入修改,重置;
@@ -55,19 +54,21 @@ public class update extends JPanel implements ActionListener{
      String s2="";
      String s3="";
      String s4="";
-     String url="jdbc:odbc:diaoyou1";
-     
+     //String url="jdbc:odbc:diaoyou1";
+     String url="jdbc:mysql://localhost/diaoyou1?user=root&password=";//第一次调试
      
   	 try{
-         	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         }catch(java.lang.ClassNotFoundException eee){}
+         	//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+         Class.forName("com.mysql.jdbc.Driver");
+         }
+         catch(java.lang.ClassNotFoundException eee){}
       
       if(e.getSource()==开始修改){
       	name=姓名.getText();
       	String sql="select * from number where 姓名='"+name+"'";
         
       	try{
-        	Connection con=DriverManager.getConnection(url,"",null);
+        	Connection con=DriverManager.getConnection(url);
         	Statement stmt=con.createStatement();
         	ResultSet rs=stmt.executeQuery(sql);
         	while(rs.next()){
@@ -97,7 +98,7 @@ public class update extends JPanel implements ActionListener{
         String sql3="update number set 家庭电话='"+s3+"'"+" where 姓名='"+name+"'";
         String sql4="update number set 办公电话='"+s4+"'"+" where 姓名='"+name+"'";
       	try{
-        	Connection con=DriverManager.getConnection(url,"",null);
+        	Connection con=DriverManager.getConnection(url);
         	Statement stmt=con.createStatement();
         	stmt.executeUpdate(sql2);
         	stmt.executeUpdate(sql3);

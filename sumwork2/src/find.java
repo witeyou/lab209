@@ -1,13 +1,10 @@
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.*;
 public class find extends JDialog implements ActionListener{
 	
 	JTextField 姓名,手机号码,家庭电话,办公电话;
@@ -67,62 +64,74 @@ public class find extends JDialog implements ActionListener{
    public void actionPerformed(ActionEvent e)
   {    
      String name="";
-     String url="jdbc:odbc:diaoyou1";
-     
+     //String url="jdbc:odbc:diaoyou1";
+      String url="jdbc:mysql://localhost/diaoyou1?user=root&password=";//第一次测试
      String s1="";
      String s2="";
      String s3="";
      String s4="";
     if(e.getSource()==查询)
-      {
-         try{
-         	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         }catch(java.lang.ClassNotFoundException eee){}
-         name=姓名.getText();
-         String sql="select * from number where 姓名='"+name+"'";
-         if(name!=""){
-        try{
-        	Connection con=DriverManager.getConnection(url,"",null);
-        	Statement stmt=con.createStatement();
-        	ResultSet rs=stmt.executeQuery(sql); 
-        	
-        	      	
-        	while(rs.next()){
-        	 s1=rs.getString("姓名");
-        	 s2=rs.getString("手机号码");
-        	 s3=rs.getString("家庭电话");
-        	 s4=rs.getString("办公电话");        		
-        	
-        	}
+    {
+        try
+        {
+         	Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch(java.lang.ClassNotFoundException eee){}
+        name=姓名.getText();
+        String sql="select * from number where 姓名='"+name+"'";
+        if(name!="")
+        {
+            try
+            {
+                Connection con=DriverManager.getConnection(url);
+        	    Statement stmt=con.createStatement();
+        	    ResultSet rs=stmt.executeQuery(sql);
+        	    while(rs.next())
+                {
+        	        s1=rs.getString("姓名");
+        	        s2=rs.getString("手机号码");
+        	        s3=rs.getString("家庭电话");
+        	        s4=rs.getString("办公电话");
+                }
         	stmt.close();
         	con.close();
-        	
-        	}catch(SQLException ex){System.out.println(ex.getMessage());}
-        	if(s1!=null){
+        	}
+        	catch(SQLException ex)
+            {
+                System.out.println(ex.getMessage());
+            }
+        	if(s1!=null)
+        	{
         		姓名.setText(s1);
                 手机号码.setText(s2);
                 家庭电话.setText(s3);
                 办公电话.setText(s4); 
         	}                      
-            }        
-      } 
-     if(e.getSource()==删除) {
-     	try{
-         	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         }catch(java.lang.ClassNotFoundException eee){}
-         name=姓名.getText();
-         String sql="delete from number where 姓名='"+name+"'";
-         try{
+        }
+    }
+    if(e.getSource()==删除)
+     {
+     	try
+        {
+         	//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch(java.lang.ClassNotFoundException eee){}
+        name=姓名.getText();
+        String sql="delete from number where 姓名='"+name+"'";
+        try
+        {
         	Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
         	stmt.executeUpdate(sql);
         	stmt.close();
         	con.close();
-        	}catch(SQLException eex){System.out.println(eex.getMessage());}
-        	姓名.setText(null);
-                手机号码.setText(null);
-                家庭电话.setText(null);
-                办公电话.setText(null);
+        }
+        catch(SQLException eex){System.out.println(eex.getMessage());}
+        姓名.setText(null);
+        手机号码.setText(null);
+        家庭电话.setText(null);
+        办公电话.setText(null);
      }
   }
 }

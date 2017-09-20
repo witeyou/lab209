@@ -1,9 +1,8 @@
-import java.sql.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
-import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 public class mhcx extends JPanel implements ActionListener{
      JTextArea ruslt;
      JTextField tj;
@@ -35,17 +34,20 @@ public class mhcx extends JPanel implements ActionListener{
 	 }
 	 
 	 public void actionPerformed(ActionEvent e){
-	 	String url="jdbc:odbc:diaoyou1";
+	 	String url="jdbc:mysql://localhost/diaoyou1?user=root&password=";//第一次调用
+		 // String url="jdbc:odbc:diaoyou1";
         String s1="";
         String s2="";
         String s3="";
         String s4="";
         try{
-         	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+        	Class.forName("com.mysql.jdbc.Driver");//
+			//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          }catch(java.lang.ClassNotFoundException eee){}
 	 	if(e.getSource()==查询){
 	 		try{
-        	Connection con=DriverManager.getConnection(url,"",null);
+        	Connection con=DriverManager.getConnection(url);
+        	//Connection con=DriverManager.getConnection(url,"",null);
         	Statement stmt=con.createStatement();
         	name=tj.getText();
         	sql="select * from number where 姓名 like '%"+name+"%'";
